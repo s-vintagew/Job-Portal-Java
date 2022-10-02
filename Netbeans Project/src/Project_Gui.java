@@ -15,7 +15,7 @@ public class Project_Gui extends javax.swing.JFrame {
         {
             String url= "jdbc:mysql://localhost:3306/usr";
             String uname="root",query;
-            try(Connection con = DriverManager.getConnection(url,uname,"");
+            try(Connection con = DriverManager.getConnection(url,uname,"root");
                     Statement statement = con.createStatement();)
             {
                 query="select username from  logindata;";
@@ -39,7 +39,7 @@ public class Project_Gui extends javax.swing.JFrame {
         {
             String url= "jdbc:mysql://localhost:3306/company";
             String uname="root",query;
-            try(Connection con = DriverManager.getConnection(url,uname,"");
+            try(Connection con = DriverManager.getConnection(url,uname,"root");
                     Statement statement = con.createStatement();)
             {
                 query="select username from  logindata;";
@@ -498,7 +498,7 @@ public class Project_Gui extends javax.swing.JFrame {
             pass=new String(jPasswordField1.getPassword());
             try
             {            
-                Connection con = DriverManager.getConnection(url,uname,"");
+                Connection con = DriverManager.getConnection(url,uname,"root");
                 Statement statement = con.createStatement();
                 query="Select * from logindata where username='"+username+"'";
                 ResultSet result= statement.executeQuery(query);
@@ -533,7 +533,7 @@ public class Project_Gui extends javax.swing.JFrame {
         pass=new String(jPasswordField1.getPassword());              
         try
         {            
-            Connection con = DriverManager.getConnection(url,uname,"");
+            Connection con = DriverManager.getConnection(url,uname,"root");
             Statement statement = con.createStatement();
             query="Select * from logindata where username='"+username+"'";
             ResultSet result= statement.executeQuery(query);
@@ -581,7 +581,7 @@ public class Project_Gui extends javax.swing.JFrame {
             fname=jTextField8.getText();
             
             email=jTextField10.getText();
-            try(Connection con = DriverManager.getConnection(url,uname,"");
+            try(Connection con = DriverManager.getConnection(url,uname,"root");
                     Statement statement = con.createStatement();)
             {
                 query="insert into logindata values('"+usr+"','"+pass+"');";
@@ -615,7 +615,7 @@ public class Project_Gui extends javax.swing.JFrame {
             fname=jTextField8.getText();
             
             email=jTextField10.getText();
-            try(Connection con = DriverManager.getConnection(url,uname,"");
+            try(Connection con = DriverManager.getConnection(url,uname,"root");
                     Statement statement = con.createStatement();)
             {
                 query="insert into logindata values('"+usr+"','"+pass+"');";

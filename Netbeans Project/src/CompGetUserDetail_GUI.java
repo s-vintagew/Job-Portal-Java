@@ -24,7 +24,7 @@ public class CompGetUserDetail_GUI extends javax.swing.JFrame {
     void data()
     {
         url="jdbc:mysql://localhost:3306/usr";
-        try(Connection con = DriverManager.getConnection(url,"root","");
+        try(Connection con = DriverManager.getConnection(url,"root","root");
             Statement statement = con.createStatement();)
         {
             query="select * from userdata where username='"+username+"';";

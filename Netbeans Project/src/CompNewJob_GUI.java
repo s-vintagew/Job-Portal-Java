@@ -13,7 +13,7 @@ public class CompNewJob_GUI extends javax.swing.JFrame {
     }
     int getId()
     {
-        try(Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/company","root","");
+        try(Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/company","root","root");
                 Statement st=con.createStatement();)
         {
             query="select company_id from companies where username='"+username+"';";
@@ -163,7 +163,7 @@ public class CompNewJob_GUI extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         int n=getId();
-        try(Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/company","root","");
+        try(Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/company","root","root");
                 Statement st=con.createStatement();)
         {
             query="insert into company_jobs(job_skill,job_role,salary,vacancy,company_id) "

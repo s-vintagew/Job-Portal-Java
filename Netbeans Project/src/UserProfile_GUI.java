@@ -434,7 +434,7 @@ public class UserProfile_GUI extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
-        try(Connection con = DriverManager.getConnection(url,"root","");
+        try(Connection con = DriverManager.getConnection(url,"root","root");
             Statement statement = con.createStatement();)
         {
             System.out.println(username);
@@ -463,7 +463,7 @@ public class UserProfile_GUI extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        try(Connection con = DriverManager.getConnection(url,"root","");
+        try(Connection con = DriverManager.getConnection(url,"root","root");
                     Statement statement = con.createStatement();)
         {
             query="update userdata "
@@ -511,7 +511,7 @@ public class UserProfile_GUI extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        try(Connection con = DriverManager.getConnection(url,"root","");
+        try(Connection con = DriverManager.getConnection(url,"root","root");
                     Statement statement = con.createStatement();)
         {
             query="update userdata "
@@ -528,7 +528,7 @@ public class UserProfile_GUI extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        try(Connection con = DriverManager.getConnection(url,"root","");
+        try(Connection con = DriverManager.getConnection(url,"root","root");
                     Statement statement = con.createStatement();)
         {
             query="update userdata "
@@ -545,7 +545,7 @@ public class UserProfile_GUI extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        try(Connection con = DriverManager.getConnection(url,"root","");
+        try(Connection con = DriverManager.getConnection(url,"root","root");
                     Statement statement = con.createStatement();)
         {
             query="update userdata "

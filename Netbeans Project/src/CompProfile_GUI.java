@@ -51,7 +51,7 @@ public class CompProfile_GUI extends javax.swing.JFrame {
                 + "contact_no= "+jTextField8.getText()+","
                 + "email= '"+jTextField9.getText()+"'"
                 + " where company_id= "+jTextField2.getText();
-        try(Connection con =DriverManager.getConnection("jdbc:mysql://localhost:3306/company","root","");
+        try(Connection con =DriverManager.getConnection("jdbc:mysql://localhost:3306/company","root","root");
                 Statement st=con.createStatement();)
         {
             st.executeUpdate(query);
@@ -66,7 +66,7 @@ public class CompProfile_GUI extends javax.swing.JFrame {
     }
     void tabData()
     {
-        try(Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/company","root","");
+        try(Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/company","root","root");
                 Statement st = con.createStatement();)
         {
             query="Select * from companies where username='"+username+"';";
@@ -428,7 +428,7 @@ public class CompProfile_GUI extends javax.swing.JFrame {
         a=new String(jPasswordField1.getPassword());
         b=new String(jPasswordField2.getPassword());
         c=new String(jPasswordField3.getPassword());
-        try(Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/company","root","");
+        try(Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/company","root","root");
                 Statement st=con.createStatement();)
         {
             query="select passcode from logindata where username='"+username+"';";

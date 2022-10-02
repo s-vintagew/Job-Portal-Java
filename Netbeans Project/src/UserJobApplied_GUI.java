@@ -29,7 +29,7 @@ public class UserJobApplied_GUI extends javax.swing.JFrame {
         DefaultTableModel m =(DefaultTableModel)jTable1.getModel();
         m.setRowCount(0);
         query="select job_id from job_applied where username='"+username+"';";
-        try(Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/usr","root","");
+        try(Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/usr","root","root");
                 Statement st=con.createStatement();)
         {
             ResultSet rs=st.executeQuery(query);
@@ -40,7 +40,7 @@ public class UserJobApplied_GUI extends javax.swing.JFrame {
                         + "salary,vacancy,companies.Name "
                         + "from company_jobs inner join companies "
                         + "on company_jobs.company_id=companies.company_id where Job_id="+i;
-                Connection con1=DriverManager.getConnection("jdbc:mysql://localhost:3306/company","root","");
+                Connection con1=DriverManager.getConnection("jdbc:mysql://localhost:3306/company","root","root");
                 Statement st1=con1.createStatement();
                 ResultSet r=st1.executeQuery(query);
                 while(r.next())

@@ -190,7 +190,7 @@ public class CompDashboard_GUI extends javax.swing.JFrame {
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
         
-        try(Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/company","root","");
+        try(Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/company","root","root");
                 Statement st=con.createStatement();)
         {
             int cid=0;

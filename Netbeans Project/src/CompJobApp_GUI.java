@@ -32,7 +32,7 @@ public class CompJobApp_GUI extends javax.swing.JFrame {
         {
             query="select * from app where job_id="+n+""
                     + " and username='"+str+"' and company_id=(select company_id from companies where username='"+username+"');";
-            try(Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/company","root","");
+            try(Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/company","root","root");
                     Statement st = con.createStatement();)
             {
                 ResultSet rs=st.executeQuery(query);
@@ -58,7 +58,7 @@ public class CompJobApp_GUI extends javax.swing.JFrame {
     {
         DefaultTableModel m=(DefaultTableModel)jTable1.getModel();
         m.setRowCount(0);
-        try(Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/company","root","");
+        try(Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/company","root","root");
                 Statement st = con.createStatement();)
         {
             query="select app.job_id, company_jobs.job_skill,company_jobs.job_role,company_jobs.salary,company_jobs.vacancy, username "
@@ -372,7 +372,7 @@ public class CompJobApp_GUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(check())
         {
-            try(Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/usr","root","");
+            try(Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/usr","root","root");
                     Statement st = con.createStatement();)
             {
                 query="select Name, phone,email from userdata where username='"+jTextField3.getText()+"';";
@@ -410,7 +410,7 @@ public class CompJobApp_GUI extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null,"Employee Hired\nNotification Sent to Employee");
         query="update app set status='Accepted' where "
                 + "job_id="+Integer.parseInt(jTextField2.getText())+" and username='"+jTextField3.getText()+"';";
-        try(Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/company","root","");
+        try(Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/company","root","root");
                 Statement st=con.createStatement();)
         {
             st.executeUpdate(query);
@@ -420,7 +420,7 @@ public class CompJobApp_GUI extends javax.swing.JFrame {
             e.printStackTrace();
         }
         query="insert into notif values('"+jTextField3.getText()+"','Your application has been accepted.\n Job ID: "+jTextField2.getText()+"')";
-        try(Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/usr","root","");
+        try(Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/usr","root","root");
                 Statement st=con.createStatement();)
         {
             st.executeUpdate(query);
@@ -444,7 +444,7 @@ public class CompJobApp_GUI extends javax.swing.JFrame {
             {
                 int c=Integer.parseInt(s);
                 DefaultTableModel m=(DefaultTableModel)jTable1.getModel();
-                try(Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/company","root","");
+                try(Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/company","root","root");
                 Statement st = con.createStatement();)
             {
             query="select app.job_id, company_jobs.job_skill,company_jobs.job_role,company_jobs.salary,company_jobs.vacancy, username "
@@ -473,7 +473,7 @@ public class CompJobApp_GUI extends javax.swing.JFrame {
         if(s!="")
         {
             DefaultTableModel m=(DefaultTableModel)jTable1.getModel();
-                try(Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/company","root","");
+                try(Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/company","root","root");
                 Statement st = con.createStatement();)
         {
             query="select app.job_id, company_jobs.job_skill,company_jobs.job_role,company_jobs.salary,company_jobs.vacancy, username "
@@ -511,7 +511,7 @@ public class CompJobApp_GUI extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null,"Application Rejected");
         query="update app set status='Rejected' where "
                 + "job_id="+Integer.parseInt(jTextField2.getText())+" and username='"+jTextField3.getText()+"';";
-        try(Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/company","root","");
+        try(Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/company","root","root");
                 Statement st=con.createStatement();)
         {
             st.executeUpdate(query);

@@ -20,7 +20,7 @@ public class CompEditJobs_GUI extends javax.swing.JFrame {
     {
         DefaultTableModel m=(DefaultTableModel)jTable1.getModel();
         int n=getId();
-        try(Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/company","root","");
+        try(Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/company","root","root");
                 Statement st = con.createStatement();)
         {
             query="select * from company_jobs where company_id="+n;
@@ -38,7 +38,7 @@ public class CompEditJobs_GUI extends javax.swing.JFrame {
     }
     int getId()
     {
-        try(Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/company","root","");
+        try(Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/company","root","root");
                 Statement st=con.createStatement();)
         {
             query="select company_id from companies where username='"+username+"';";
@@ -264,7 +264,7 @@ public class CompEditJobs_GUI extends javax.swing.JFrame {
         jTextField2.setEditable(false);
         int n=Integer.parseInt(jTextField2.getText());
         query="select * from company_jobs where job_id="+n;
-        try(Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/company","root","");
+        try(Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/company","root","root");
                 Statement st = con.createStatement();)
         {
             ResultSet rs=st.executeQuery(query);
@@ -301,7 +301,7 @@ public class CompEditJobs_GUI extends javax.swing.JFrame {
                 + "salary="+Long.parseLong(jTextField5.getText())+","
                 + "vacancy="+Integer.parseInt(jTextField6.getText())
                 + " where job_id="+n+";";
-        try(Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/company","root","");
+        try(Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/company","root","root");
                 Statement st = con.createStatement();)
         {
             st.executeUpdate(query);

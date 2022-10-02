@@ -27,7 +27,7 @@ public class UserNotif_GUI extends javax.swing.JFrame {
     {
         DefaultTableModel m=(DefaultTableModel)jTable1.getModel();
         query="select * from notif where username='"+username+"';";
-        try(Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/usr","root","");
+        try(Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/usr","root","root");
                 Statement st=con.createStatement();)
         {
             ResultSet rs=st.executeQuery(query);

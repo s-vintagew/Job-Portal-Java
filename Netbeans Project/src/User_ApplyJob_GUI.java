@@ -21,7 +21,7 @@ public class User_ApplyJob_GUI extends javax.swing.JFrame {
         //String[] cols={"Job ID","Job Role","Skill Required","Company ID"};
         model.setRowCount(0);
         ResultSet result;
-        try(Connection con = DriverManager.getConnection(url,"root","");
+        try(Connection con = DriverManager.getConnection(url,"root","root");
             Statement st=con.createStatement();)
         {
             String s;
@@ -243,7 +243,7 @@ public class User_ApplyJob_GUI extends javax.swing.JFrame {
         if(!jTextField2.getText().equals(""))
         {
         int id=Integer.parseInt(jTextField2.getText());
-        try(Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/company","root","");
+        try(Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/company","root","root");
                 Statement st=con.createStatement();)
         {
             query="select company_id from company_jobs where Job_id="+id;
@@ -262,7 +262,7 @@ public class User_ApplyJob_GUI extends javax.swing.JFrame {
             e.printStackTrace();
             JOptionPane.showMessageDialog(null,"Technical error.");
         }
-        try(Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/usr","root","");
+        try(Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/usr","root","root");
                 Statement st=con.createStatement();)
         {
             query="insert into job_applied values('"+username+"',"+id+");";
@@ -286,7 +286,7 @@ public class User_ApplyJob_GUI extends javax.swing.JFrame {
         model.setRowCount(0);
         ResultSet result;
         int ctr=1;
-        try(Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/usr","root","");
+        try(Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/usr","root","root");
             Statement st=con.createStatement();)
         {
             query="select * from skills where username='"+username+"';";
@@ -302,7 +302,7 @@ public class User_ApplyJob_GUI extends javax.swing.JFrame {
                         query="select Job_id,job_skill,job_role,salary,vacancy,companies.name from company_jobs "
                              + "inner join companies on company_jobs.company_id=companies.company_id"
                              + " where job_skill='"+s+"';";
-                        Connection con1 = DriverManager.getConnection("jdbc:mysql://localhost:3306/company","root","");
+                        Connection con1 = DriverManager.getConnection("jdbc:mysql://localhost:3306/company","root","root");
                         Statement st1=con1.createStatement();
                         ResultSet r=st1.executeQuery(query);
                         while(r.next())

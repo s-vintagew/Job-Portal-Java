@@ -25,7 +25,7 @@ public class CompNotif_GUI extends javax.swing.JFrame {
     void tabData()
     {
         DefaultTableModel m=(DefaultTableModel)jTable1.getModel();
-        try(Connection con= DriverManager.getConnection("jdbc:mysql://localhost:3306/company","root","");
+        try(Connection con= DriverManager.getConnection("jdbc:mysql://localhost:3306/company","root","root");
                 Statement st=con.createStatement();)
         {
             int cid=0;

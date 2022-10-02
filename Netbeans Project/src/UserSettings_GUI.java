@@ -150,7 +150,7 @@ public class UserSettings_GUI extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        try(Connection con = DriverManager.getConnection(url,"root","");
+        try(Connection con = DriverManager.getConnection(url,"root","root");
                 Statement st=con.createStatement();)
         {
             query="select passcode from logindata where username='"+username+"';";
@@ -175,7 +175,7 @@ public class UserSettings_GUI extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"Password Mismatch\nTry Again");
         else
         {
-            try(Connection con = DriverManager.getConnection(url,"root","");
+            try(Connection con = DriverManager.getConnection(url,"root","root");
                 Statement st=con.createStatement();)
             {
                 query="update logindata set passcode='"+a+"' where username='"+username+"';";

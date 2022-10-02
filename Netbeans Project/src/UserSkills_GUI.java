@@ -24,7 +24,7 @@ public class UserSkills_GUI extends javax.swing.JFrame {
     }
     void skillData()
     {
-         try(Connection con = DriverManager.getConnection(url,"root","");
+         try(Connection con = DriverManager.getConnection(url,"root","root");
                 Statement st=con.createStatement();)
         {
             query="select * from skills where username='"+username+"';";
@@ -231,7 +231,7 @@ public class UserSkills_GUI extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-         try(Connection con = DriverManager.getConnection(url,"root","");
+         try(Connection con = DriverManager.getConnection(url,"root","root");
                 Statement st=con.createStatement();)
         {
             query="update skills set "

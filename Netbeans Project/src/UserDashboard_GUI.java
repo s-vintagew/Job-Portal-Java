@@ -209,7 +209,7 @@ public class UserDashboard_GUI extends javax.swing.JFrame {
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         // TODO add your handling code here:
         query="delete from notif where username='"+username+"';";
-        try(Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/usr","root","");
+        try(Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/usr","root","root");
                 Statement st = con.createStatement();)
         {
             st.executeUpdate(query);
